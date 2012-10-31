@@ -1,20 +1,35 @@
-set autoindent
-
-set cul
-
-set ttyfast
-set showmatch
-
-set history=500
-set wildmenu
-set mouse=a
-
-set ignorecase
-set hlsearch
-
-set laststatus=2
+autocmd! bufwritepost .vimrc source %
 
 syn on
 
-set ts=4
-set nu
+"set mouse=a
+
+set number
+set tabstop=4
+set showtabline=2
+set wildmenu
+
+set clipboard=unnamed
+
+set cursorline
+
+map <c-x> :quit!<cr>
+map <c-w> :w<cr>
+
+inoremap <c-@> <c-x><c-n>
+
+set history=1000
+set undolevels=1000
+
+set incsearch
+set ignorecase
+set smartcase
+
+set noswapfile
+set nobackup
+set nowritebackup
+
+
+set ttyfast
+set laststatus=2
+set autoindent
