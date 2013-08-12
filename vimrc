@@ -5,6 +5,7 @@ syn on
 set number
 set tabstop=4
 set showtabline=2
+set cmdheight=2
 set wildmenu
 
 set clipboard=unnamed
@@ -25,5 +26,6 @@ set nowritebackup
 
 
 set ttyfast
-set laststatus=2
 set autoindent
+
+colorscheme evening
