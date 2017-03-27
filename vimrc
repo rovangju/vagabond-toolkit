@@ -1,15 +1,15 @@
-autocmd! bufwritepost .vimrc source %
+autocmd bufwritepost .vimrc source %
 autocmd  vimenter * TagbarToggle
 
-
-" 1. Install Git Plug
-"   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-" 2. Run "PlugInstall"
+" 0. re-map 'vi' to 'vim' in .bashrc (alias vi='vim')
+" 1. Install Git Plug: curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" 2. Run 'PlugInstall'
 " 3. Re-run vim
-" 4. Optional: re-map 'vi' to 'vim' in .bashrc (alias vi='vim')
-
 
 " Emmet expansion: <C-Y> ,
+" Toggle file-nav: <C-o>
+" Toggle Tag-bar: <F8>
+
 set encoding=utf-8
 set history=1000
 
