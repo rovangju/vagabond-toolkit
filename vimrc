@@ -31,15 +31,17 @@ set wildmode=longest:full,full                                                  
 call plug#begin('~/.vim/plugged')                                                                                                                                      |~
                                                                                                                                                                        |~
 Plug 'bling/vim-airline'                                                                                                                                               |~
-Plug 'crusoexia/vim-monokai'                                                                                                                                           |~
+"Plug 'crusoexia/vim-monokai'                                                                                                                                           |~
 Plug 'scrooloose/nerdtree'                                                                                                                                             |~
 Plug 'pangloss/vim-javascript'                                                                                                                                         |~
 Plug 'majutsushi/tagbar'                                                                                                                                               |~
 Plug 'airblade/vim-gitgutter'                                                                                                                                          |~
 Plug 'mattn/emmet-vim'                                                                                                                                                 |~
+Plug 'tpope/vim-fugitive'
+Plug 'blueshirts/darcula'
 call plug#end()                                                                                                                                                        |~
                                                                                                                                                                        |~
-colorscheme monokai                                                                                                                                                    |~
+colorscheme darcula                                                                                                                                                    |~
                                                                                                                                                                        |~
 map <C-o> :NERDTreeToggle<CR>                                                                                                                                          |~
 map <C-n> :bNext<CR>                                                                                                                                                   |~
