@@ -1,5 +1,5 @@
 autocmd bufwritepost .vimrc source %
-autocmd  vimenter * TagbarToggle
+" autocmd  vimenter * TagbarToggle
 
 " 0. re-map 'vi' to 'vim' in .bashrc (alias vi='vim')
 " 1. Install Git Plug: curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
