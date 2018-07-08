@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo yum install iptables-services
+sudo yum install iptables-services -y
 sudo iptables-save > /etc/sysconfig/iptables-config
 sudo systemctl stop firewalld && sudo systemctl start iptables
 sudo firewall-cmd --state
