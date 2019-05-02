@@ -1,46 +1,46 @@
--A BLACKLIST -s 1.0.0.0/8 -j DROP                                                                                                                                                                                                    |~
--A BLACKLIST -s 14.0.0.0/8 -j DROP                                                                                                                                                                                                   |~
--A BLACKLIST -s 27.0.0.0/8 -j DROP                                                                                                                                                                                                   |~
--A BLACKLIST -s 36.0.0.0/8 -j DROP                                                                                                                                                                                                   |~
--A BLACKLIST -s 39.0.0.0/8 -j DROP                                                                                                                                                                                                   |~
--A BLACKLIST -s 42.0.0.0/8 -j DROP                                                                                                                                                                                                   |~
--A BLACKLIST -s 49.0.0.0/8 -j DROP                                                                                                                                                                                                   |~
--A BLACKLIST -s 58.0.0.0/8 -j DROP                                                                                                                                                                                                   |~
--A BLACKLIST -s 59.0.0.0/8 -j DROP                                                                                                                                                                                                   |~
--A BLACKLIST -s 60.0.0.0/8 -j DROP                                                                                                                                                                                                   |~
--A BLACKLIST -s 61.0.0.0/8 -j DROP                                                                                                                                                                                                   |~
--A BLACKLIST -s 101.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 103.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 106.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 110.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 111.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 112.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 113.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 114.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 115.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 116.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 117.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 118.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 119.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 120.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 121.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 122.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 123.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 124.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 125.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 126.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 169.208.0.0/12 -j DROP                                                                                                                                                                                               |~
--A BLACKLIST -s 175.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 180.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 182.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 183.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 202.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 203.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 210.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 211.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 218.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 219.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 220.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 221.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 222.0.0.0/8 -j DROP                                                                                                                                                                                                  |~
--A BLACKLIST -s 223.0.0.0/8 -j DROP     
+-A BLACKLIST -s 1.0.0.0/8 -j DROP
+-A BLACKLIST -s 14.0.0.0/8 -j DROP
+-A BLACKLIST -s 27.0.0.0/8 -j DROP
+-A BLACKLIST -s 36.0.0.0/8 -j DROP
+-A BLACKLIST -s 39.0.0.0/8 -j DROP
+-A BLACKLIST -s 42.0.0.0/8 -j DROP
+-A BLACKLIST -s 49.0.0.0/8 -j DROP
+-A BLACKLIST -s 58.0.0.0/8 -j DROP
+-A BLACKLIST -s 59.0.0.0/8 -j DROP
+-A BLACKLIST -s 60.0.0.0/8 -j DROP
+-A BLACKLIST -s 61.0.0.0/8 -j DROP
+-A BLACKLIST -s 101.0.0.0/8 -j DROP
+-A BLACKLIST -s 103.0.0.0/8 -j DROP
+-A BLACKLIST -s 106.0.0.0/8 -j DROP
+-A BLACKLIST -s 110.0.0.0/8 -j DROP
+-A BLACKLIST -s 111.0.0.0/8 -j DROP
+-A BLACKLIST -s 112.0.0.0/8 -j DROP
+-A BLACKLIST -s 113.0.0.0/8 -j DROP
+-A BLACKLIST -s 114.0.0.0/8 -j DROP
+-A BLACKLIST -s 115.0.0.0/8 -j DROP
+-A BLACKLIST -s 116.0.0.0/8 -j DROP
+-A BLACKLIST -s 117.0.0.0/8 -j DROP
+-A BLACKLIST -s 118.0.0.0/8 -j DROP
+-A BLACKLIST -s 119.0.0.0/8 -j DROP
+-A BLACKLIST -s 120.0.0.0/8 -j DROP
+-A BLACKLIST -s 121.0.0.0/8 -j DROP
+-A BLACKLIST -s 122.0.0.0/8 -j DROP
+-A BLACKLIST -s 123.0.0.0/8 -j DROP
+-A BLACKLIST -s 124.0.0.0/8 -j DROP
+-A BLACKLIST -s 125.0.0.0/8 -j DROP
+-A BLACKLIST -s 126.0.0.0/8 -j DROP
+-A BLACKLIST -s 169.208.0.0/12 -j DROP
+-A BLACKLIST -s 175.0.0.0/8 -j DROP
+-A BLACKLIST -s 180.0.0.0/8 -j DROP
+-A BLACKLIST -s 182.0.0.0/8 -j DROP
+-A BLACKLIST -s 183.0.0.0/8 -j DROP
+-A BLACKLIST -s 202.0.0.0/8 -j DROP
+-A BLACKLIST -s 203.0.0.0/8 -j DROP
+-A BLACKLIST -s 210.0.0.0/8 -j DROP
+-A BLACKLIST -s 211.0.0.0/8 -j DROP
+-A BLACKLIST -s 218.0.0.0/8 -j DROP
+-A BLACKLIST -s 219.0.0.0/8 -j DROP
+-A BLACKLIST -s 220.0.0.0/8 -j DROP
+-A BLACKLIST -s 221.0.0.0/8 -j DROP
+-A BLACKLIST -s 222.0.0.0/8 -j DROP
+-A BLACKLIST -s 223.0.0.0/8 -j DROP
