@@ -7,8 +7,8 @@ autocmd bufwritepost .vimrc source %
 
 set encoding=utf-8
 set history=1000
-set colorColumn=120
-set ColorColumn ctermbg=lightgray
+set colorcolumn=120
+highlight ColorColumn ctermbg=lightgray
 
 filetype plugin on
 filetype indent on
