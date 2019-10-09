@@ -5,12 +5,10 @@ autocmd bufwritepost .vimrc source %
 " 2. Run 'PlugInstall'
 " 3. Re-run vim
 
-" Emmet expansion: <C-Y> ,
-" Toggle file-nav: <C-o>
-" Toggle Tag-bar: <F8>
-
 set encoding=utf-8
 set history=1000
+set colorColumn=120
+set ColorColumn ctermbg=lightgray
 
 filetype plugin on
 filetype indent on
@@ -42,19 +40,9 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'bling/vim-airline'
-"Plug 'crusoexia/vim-monokai'
-Plug 'scrooloose/nerdtree'
-Plug 'pangloss/vim-javascript'
-"Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
-"Plug 'mattn/emmet-vim'
 Plug 'blueshirts/darcula'
 Plug 'tpope/vim-fugitive'
 call plug#end()
-
-
-map <C-o> :NERDTreeToggle<CR>
-map <C-n> :bNext<CR>
-nmap <F8> :TagbarToggle<CR>
 
 colorscheme darcula
