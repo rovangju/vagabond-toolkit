@@ -26,6 +26,7 @@ set ignorecase
 set hlsearch
 set noerrorbells
 set novisualbell
+set paste
 
 set wildmode=longest:full,full
 
