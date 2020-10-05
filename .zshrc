@@ -10,6 +10,7 @@ alias dcp="docker-compose"
 alias art="php artisan"
 alias grw="./gradlew"
 alias vimhosts="sudo vi /private/etc/hosts"
+alias fdate="date +\"%Y%m%dT%H%M%S\""
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
