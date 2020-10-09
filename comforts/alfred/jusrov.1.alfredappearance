@@ -1,0 +1,61 @@
+{
+  "alfredtheme" : {
+    "result" : {
+      "textSpacing" : 4,
+      "subtext" : {
+        "size" : 12,
+        "colorSelected" : "#FFFFFFCB",
+        "font" : "System",
+        "color" : "#FFFFFF7E"
+      },
+      "shortcut" : {
+        "size" : 16,
+        "colorSelected" : "#FFFFFFFF",
+        "font" : "System",
+        "color" : "#FFFFFF7E"
+      },
+      "backgroundSelected" : "#9BC40098",
+      "text" : {
+        "size" : 20,
+        "colorSelected" : "#FFFFFFFF",
+        "font" : "System",
+        "color" : "#FFFFFFCB"
+      },
+      "iconPaddingHorizontal" : 8,
+      "paddingVertical" : 6,
+      "iconSize" : 25
+    },
+    "search" : {
+      "paddingVertical" : 3,
+      "background" : "#0000003E",
+      "spacing" : 0,
+      "text" : {
+        "size" : 38,
+        "colorSelected" : "#FFFFFFFF",
+        "font" : "System Light",
+        "color" : "#FFFFFFFF"
+      },
+      "backgroundSelected" : "#358188FF"
+    },
+    "window" : {
+      "color" : "#000000A3",
+      "paddingHorizontal" : 0,
+      "width" : 600,
+      "borderPadding" : 4,
+      "borderColor" : "#FBFFFF1C",
+      "blur" : 15,
+      "roundness" : 3,
+      "paddingVertical" : 0
+    },
+    "credit" : "Justin Rovang",
+    "separator" : {
+      "color" : "#CBCBCBF3",
+      "thickness" : 0
+    },
+    "scrollbar" : {
+      "color" : "#358188FF",
+      "thickness" : 2
+    },
+    "name" : "jusrov.1"
+  }
+}
