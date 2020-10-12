@@ -19,7 +19,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export ZSH="/Users/jusrov/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -31,5 +31,5 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /Users/jusrov/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /Users/jusrov/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${HOME}/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
