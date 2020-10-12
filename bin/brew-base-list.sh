@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+brew install \
+antigen \
+awscli \
+azure-cli \
+coreutils \
+git \
+git-flow \
+git-lfs \
+gradle \
+helm \
+htop \
+jenv \
+jq \
+k9s \
+kotlin \
+docker \
+docker-compose \
+lazydocker \
+wget \
+openjdk
+
+brew cask install \
+dozer \
+iterm2 \
+adoptopenjdk@8 \
+microsoft-edge \
+obs \
+microsoft-auto-update
