@@ -19,7 +19,7 @@ docker \
 docker-compose \
 lazydocker \
 wget \
-openjdk
+saxon
 
 brew cask install \
 dozer \
@@ -27,4 +27,16 @@ iterm2 \
 adoptopenjdk@8 \
 microsoft-edge \
 obs \
-microsoft-auto-update
+microsoft-auto-update \
+adoptopenjdk \
+adoptopenjdk8 \
+azure-data-studio \
+dbeaver-community \
+drawio \
+jdk-mission-control \
+jetbrains-toolbox \
+keeweb \
+postman \
+spotify \
+visual-studio-code \
+visualvm
