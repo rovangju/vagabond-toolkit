@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cp -aR ./git-track /usr/local/bin/git-track
+cp -aR ../common/git-track /usr/local/bin/git-track
 
 #show user library
 chflags nohidden ~/Library
