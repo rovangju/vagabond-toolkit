@@ -19,7 +19,8 @@ alias grw="./gradlew"
 alias vimhosts="sudo vi /private/etc/hosts"
 alias fdate="date +\"%Y%m%dT%H%M%S\""
 
-source /usr/local/share/antigen/antigen.zsh
+[[ ! -f /usr/local/share/antigen/antigen.zsh ]] || source /usr/local/share/antigen/antigen.zsh
+[[ ! -f /usr/share/zsh-antigen/antigen.zsh ]] || source /usr/share/zsh-antigen/antigen.zsh
 
 antigen use oh-my-zsh
 antigen bundle git
@@ -43,3 +44,4 @@ antigen apply
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.os.zsh ]] || source ~/.os.zsh
