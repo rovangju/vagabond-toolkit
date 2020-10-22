@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-sudo apt-get install tmux xclip fzf zsh-antigen -y
+sudo apt-get install tmux jq xclip fzf zsh-antigen -y
