@@ -7,6 +7,6 @@ chflags nohidden ~/Library
 
 #eth/wifi airdrop
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
-
 #finder list view
 defaults write com.apple.Finder FXPreferredViewStyle Nlsv
+defaults write com.apple.finder AppleShowAllFiles YES
