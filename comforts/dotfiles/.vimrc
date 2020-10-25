@@ -1,5 +1,6 @@
 autocmd bufwritepost .vimrc source %
 
+
 " 0. re-map 'vi' to 'vim' in .bashrc (alias vi='vim')
 " 1. Install Git Plug: curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 " 2. Run 'PlugInstall'
@@ -24,17 +25,20 @@ set nu
 "4 space tabs
 set ts=4
 
+set cursorline
 set laststatus=2
 set showtabline=2
 set cmdheight=2
 set wildmenu
 set ruler
+set shell=/usr/bin/zsh 
 set ignorecase
+set smartcase
 set hlsearch
 set noerrorbells
 set novisualbell
 set paste
-
+set autoindent
 set wildmode=longest:full,full
 
 let g:taboo_tab_format = " %f%m (%W) "
@@ -65,6 +69,7 @@ Plug 'airblade/vim-gitgutter'
 
 " Theme that I like 
 Plug 'blueshirts/darcula'
+Plug 'arcticicestudio/nord-vim'
 
 " :Gedit, :Git x (:help fugitive) 
 Plug 'tpope/vim-fugitive'
@@ -90,6 +95,15 @@ call plug#end()
 
 colorscheme darcula
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" KEYBINDINGS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " explore folder of current buffer
 nnoremap - :FZF %:h<CR>
-
+" Use control-c instead of escape
+nnoremap <C-c> <Esc>
+" ctrl-s to save (MUST HAVE stty -ixon in zshrc file!
+nnoremap <C-s> :w<CR>
+" Alternate way to quit, ctrl-q
+nnoremap <C-Q> :wq!<CR>
