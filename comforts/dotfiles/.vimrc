@@ -106,4 +106,9 @@ nnoremap <C-c> <Esc>
 " ctrl-s to save (MUST HAVE stty -ixon in zshrc file!
 nnoremap <C-s> :w<CR>
 " Alternate way to quit, ctrl-q
-nnoremap <C-Q> :wq!<CR>
+nnoremap <C-q> :wq!<CR>
+
+"Buffer navigation
+nnoremap <C-A-Left> :bp<CR>
+nnoremap <C-A-Right> :bn<CR>
+
