@@ -11,6 +11,8 @@ brew install antigen
   "$KREW" install krew
 )
 
+# Tmux plugin
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 cp ../comforts/dotfiles/.zshrc $HOME/.zshrc
 cp ../comforts/dotfiles/.p10k.zsh $HOME/.p10k.zsh
