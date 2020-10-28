@@ -20,6 +20,8 @@ wx()
 	curl -H "Accept-Language: ${LANG%_*}" --compressed "$request"
 }
 
+# Need azure repos extension installed: https://docs.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview
+# az extension add --name repos
 # https://docs.microsoft.com/en-us/cli/azure/ext/azure-devops/repos/pr?view=azure-cli-latest#ext_azure_devops_az_repos_pr_create
 aprl() {
 	az repos pr list --output table
