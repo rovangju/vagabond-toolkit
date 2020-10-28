@@ -12,7 +12,6 @@ alias grw="./gradlew"
 alias vimhosts="sudo vi /private/etc/hosts"
 alias fdate="date +\"%Y%m%dT%H%M%S\""
 
-
 wx()
 {
 	# change Paris to your default location
@@ -21,6 +20,46 @@ wx()
 	curl -H "Accept-Language: ${LANG%_*}" --compressed "$request"
 }
 
+# https://docs.microsoft.com/en-us/cli/azure/ext/azure-devops/repos/pr?view=azure-cli-latest#ext_azure_devops_az_repos_pr_create
+aprl() {
+	az repos pr list --output table
+	# @TODO: Make more fancy with jq
+}
+aprc() {
+	# @TODO: reviewers ?
+	az repos pr create \
+	--draft \
+	--open \
+	--squash \
+	--target-branch ${@}
+}
+apro() {
+	
+	# @TODO: Use FZF with list
+	[[ ! ${1} ]] && echo "Pull request ID required (try aprl)" && return 1;
+
+	az repos pr show \
+	--id ${1} \
+	--open \
+	--output none
+}
+
+git-publish() {
+	branch=$(git rev-parse --abbrev-ref HEAD)
+
+	[[ ! ${branch} ]] && echo "No branch detected" && return 1;
+
+	echo -n "Publish and track branch: ${branch}? [yes|*]"
+	read answer
+
+	case ${answer} in
+		"yes" ) ;;
+		*) return 1;;
+	esac
+
+	git push origin ${branch}:${branch}
+	git branch ${branch} --set-upstream-to origin/${branch}
+}
 
 [[ ! -f /usr/local/share/antigen/antigen.zsh ]] || source /usr/local/share/antigen/antigen.zsh
 [[ ! -f /usr/share/zsh-antigen/antigen.zsh ]] || source /usr/share/zsh-antigen/antigen.zsh
