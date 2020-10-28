@@ -31,7 +31,7 @@ set showtabline=2
 set cmdheight=2
 set wildmenu
 set ruler
-set shell=/usr/bin/zsh 
+set shell=$SHELL
 set ignorecase
 set smartcase
 set hlsearch
@@ -91,6 +91,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'easymotion/vim-easymotion'
 
 Plug 'gcmt/taboo.vim'
+
 call plug#end()
 
 colorscheme darcula
