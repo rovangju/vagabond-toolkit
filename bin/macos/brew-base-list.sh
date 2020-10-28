@@ -5,6 +5,7 @@ antigen \
 awscli \
 azure-cli \
 coreutils \
+bat \
 git \
 git-flow \
 git-lfs \
