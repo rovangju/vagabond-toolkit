@@ -1,3 +1,4 @@
+START=$(gdate +%s%3N)
 # Eliminate Software Flow Control (XON/XOFF flow control)
 stty -ixon
 
@@ -20,8 +21,6 @@ wx()
 	curl -H "Accept-Language: ${LANG%_*}" --compressed "$request"
 }
 
-# Need azure repos extension installed: https://docs.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview
-# az extension add --name repos
 # https://docs.microsoft.com/en-us/cli/azure/ext/azure-devops/repos/pr?view=azure-cli-latest#ext_azure_devops_az_repos_pr_create
 aprl() {
 	az repos pr list --output table
@@ -75,7 +74,8 @@ antigen bundle gradle
 antigen bundle mvn
 antigen bundle npm
 antigen bundle git-flow
-antigen bundle jenv
+# this is absurdly slow ...
+#antigen bundle jenv
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
@@ -89,8 +89,18 @@ antigen apply
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+	        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.os.zsh ]] || source ~/.os.zsh
 [[ ! -f ~/.vim/plugged/fzf/shell/key-bindings.zsh ]] || source ~/.vim/plugged/fzf/shell/key-bindings.zsh
 [[ ! -f ~/.vim/plugged/fzf/shell/completion.zsh ]] || source ~/.vim/plugged/fzf/shell/completion.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+END=$(gdate +%s%3N)
+DIFF=$(( $END - $START ))
+
+#echo "init: $DIFF ms"

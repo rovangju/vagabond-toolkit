@@ -1,16 +1,7 @@
 autocmd bufwritepost .vimrc source %
 
-
-" 0. re-map 'vi' to 'vim' in .bashrc (alias vi='vim')
-" 1. Install Git Plug: curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-" 2. Run 'PlugInstall'
-" 3. Re-run vim
-
-highlight ColorColumn ctermbg=lightgray
 filetype plugin indent on
 syntax on
-
-set termguicolors
 
 set encoding=utf-8
 set history=1000
@@ -28,7 +19,6 @@ set ts=4
 set cursorline
 set laststatus=2
 set showtabline=2
-set cmdheight=2
 set wildmenu
 set ruler
 set shell=$SHELL
@@ -41,12 +31,16 @@ set paste
 set autoindent
 set wildmode=longest:full,full
 
-let g:taboo_tab_format = " %f%m (%W) "
+let g:airline_theme = 'base16'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#fugitiveline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 1
 
-" Make sure git is installed 
+" Make sure git is installed
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -62,19 +56,13 @@ Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdcommenter'
 
 " Show pct of line in file/line/columns on bottom
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-"Show git status of file
-Plug 'airblade/vim-gitgutter'
-
-" Theme that I like 
-Plug 'blueshirts/darcula'
-Plug 'arcticicestudio/nord-vim'
-
-" :Gedit, :Git x (:help fugitive) 
+" Git integration
 Plug 'tpope/vim-fugitive'
 
-"FZF! Fuzzy file finding, :Buffers, :Files, :History, :Windows, :Commits, etc 
+"FZF! Fuzzy file finding, :Buffers, :Files, :History, :Windows, :Commits, etc
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
@@ -84,17 +72,18 @@ Plug 'jiangmiao/auto-pairs'
 " Language packs to help with syntax, indentation
 Plug 'sheerun/vim-polyglot'
 
-" Icons added to finders/trees
-"Plug 'ryanoasis/vim-devicons'
-
 " Nifty way to jump to symbols on screen (\\ss)
 Plug 'easymotion/vim-easymotion'
 
-Plug 'gcmt/taboo.vim'
+" Base 16 vim theme support
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
-colorscheme darcula
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -110,6 +99,5 @@ nnoremap <C-s> :w<CR>
 nnoremap <C-q> :wq!<CR>
 
 "Buffer navigation
-nnoremap <C-A-Left> :bp<CR>
-nnoremap <C-A-Right> :bn<CR>
-
+nnoremap <C-S-Left> :bp<CR>
+nnoremap <C-S-Right> :bn<CR>
