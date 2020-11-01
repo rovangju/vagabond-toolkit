@@ -13,6 +13,7 @@ brew install antigen
 
 # Tmux plugin
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
 cp ../comforts/dotfiles/.zshrc $HOME/.zshrc
 cp ../comforts/dotfiles/.p10k.zsh $HOME/.p10k.zsh
