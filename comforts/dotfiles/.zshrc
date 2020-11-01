@@ -1,4 +1,4 @@
-START=$(gdate +%s%3N)
+#START=$(gdate +%s%3N)
 # Eliminate Software Flow Control (XON/XOFF flow control)
 stty -ixon
 
@@ -100,7 +100,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [[ ! -f ~/.vim/plugged/fzf/shell/completion.zsh ]] || source ~/.vim/plugged/fzf/shell/completion.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-END=$(gdate +%s%3N)
-DIFF=$(( $END - $START ))
+#END=$(gdate +%s%3N)
+#DIFF=$(( $END - $START ))
 
 #echo "init: $DIFF ms"
