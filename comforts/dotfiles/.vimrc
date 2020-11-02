@@ -11,7 +11,7 @@ set colorcolumn=120
 set nobackup
 
 "show line numbers
-set nu
+set nu rnu
 
 "4 space tabs
 set ts=4
