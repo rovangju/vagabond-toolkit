@@ -2,7 +2,6 @@
 # Eliminate Software Flow Control (XON/XOFF flow control)
 stty -ixon
 
-export BASE16_SHEL=monokai
 export EDITOR=vim
 export FZF_DEFAULT_COMMAND="find . -type f -not -path '*/\.git/*'"
 
