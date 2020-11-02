@@ -3,14 +3,13 @@ autocmd bufwritepost .vimrc source %
 filetype plugin indent on
 syntax on
 
-set encoding=utf-8
 set history=1000
 set colorcolumn=120
 
 "no .swp file
 set nobackup
 
-"show line numbers
+"show hybrid lines 
 set nu rnu
 
 "4 space tabs
@@ -78,6 +77,9 @@ Plug 'easymotion/vim-easymotion'
 " Base 16 vim theme support
 Plug 'chriskempson/base16-vim'
 
+" Relative line numbers; but when in insert mode, use absolute
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+
 call plug#end()
 
 if filereadable(expand("~/.vimrc_background"))
@@ -97,7 +99,3 @@ nnoremap <C-c> <Esc>
 nnoremap <C-s> :w<CR>
 " Alternate way to quit, ctrl-q
 nnoremap <C-q> :wq!<CR>
-
-"Buffer navigation
-nnoremap <C-S-Left> :bp<CR>
-nnoremap <C-S-Right> :bn<CR>
