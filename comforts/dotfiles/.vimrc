@@ -10,7 +10,7 @@ set colorcolumn=120
 set nobackup
 
 "show hybrid lines 
-set nu rnu
+set nu 
 
 "4 space tabs
 set ts=4
@@ -77,9 +77,6 @@ Plug 'easymotion/vim-easymotion'
 " Base 16 vim theme support
 Plug 'chriskempson/base16-vim'
 
-" Relative line numbers; but when in insert mode, use absolute
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-
 call plug#end()
 
 if filereadable(expand("~/.vimrc_background"))
@@ -101,4 +98,5 @@ nnoremap <C-s> :w<CR>
 nnoremap <C-q> :wq!<CR>
 
 let mapleader=","
-nnoremap <silent> <Leader>f :FZF<cr>
+nnoremap <silent> <Leader>f :FZF<CR>
+nnoremap <silent> <Leader>rn :set rnu!<CR>
