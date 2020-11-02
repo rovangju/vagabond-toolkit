@@ -16,6 +16,7 @@ jenv \
 jq \
 k9s \
 kotlin \
+most \
 docker \
 docker-compose \
 lazydocker \
