@@ -99,3 +99,6 @@ nnoremap <C-c> <Esc>
 nnoremap <C-s> :w<CR>
 " Alternate way to quit, ctrl-q
 nnoremap <C-q> :wq!<CR>
+
+let mapleader=","
+nnoremap <silent> <Leader>f :FZF<cr>

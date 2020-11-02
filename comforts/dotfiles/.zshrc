@@ -4,6 +4,7 @@ stty -ixon
 
 export BASE16_SHEL=monokai
 export EDITOR=vim
+export FZF_DEFAULT_COMMAND="find . -type f -not -path '*/\.git/*'"
 
 if command -v most > /dev/null 2>&1; then
     export PAGER="most"
