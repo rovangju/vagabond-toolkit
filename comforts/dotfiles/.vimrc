@@ -14,6 +14,7 @@ set nu
 
 "4 space tabs
 set ts=4
+set shiftwidth=4
 
 set cursorline
 set laststatus=2
@@ -51,7 +52,8 @@ Plug 'editorconfig/editorconfig-vim'
 "Shows indent line alignment
 Plug 'Yggdroot/indentLine'
 
-"Easy commenting ([n]\cc, [n]\cs [n]\cn, \c$)
+" https://github.com/preservim/nerdcommenter
+"Easy commenting (<leader>cc, <leader>cs, <leader>cu, <leader>cn, <leader>c$, <leader>c-space)
 Plug 'scrooloose/nerdcommenter'
 
 " Show pct of line in file/line/columns on bottom
@@ -65,13 +67,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Easy bracket pair management [ => []  and z[<bs>] = z
-Plug 'jiangmiao/auto-pairs'
-
 " Language packs to help with syntax, indentation
 Plug 'sheerun/vim-polyglot'
 
-" Nifty way to jump to symbols on screen (\\ss)
+" Nifty way to jump to symbols on screen (<leader><leader>s)
 Plug 'easymotion/vim-easymotion'
 
 " Base 16 vim theme support
@@ -84,12 +83,9 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYBINDINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" explore folder of current buffer
-nnoremap - :FZF %:h<CR>
 " Use control-c instead of escape
 nnoremap <C-c> <Esc>
 " ctrl-s to save (MUST HAVE stty -ixon in zshrc file!
@@ -98,5 +94,10 @@ nnoremap <C-s> :w<CR>
 nnoremap <C-q> :wq!<CR>
 
 let mapleader=","
-nnoremap <silent> <Leader>f :FZF<CR>
+nnoremap <silent> <Leader>n :bn<CR>
+" explore folder of current buffer
+nnoremap <silent> <Leader>f :FZF %:h<CR>
+" explore folder of home
+nnoremap <silent> <Leader>F :FZF<CR>
+" toggle relative line numbers
 nnoremap <silent> <Leader>rn :set rnu!<CR>
