@@ -1,0 +1,40 @@
+let mapleader=","
+set nu
+set shiftwidth=4
+set ts=4
+set incsearch
+set showmode
+
+set surround
+set multiple-cursors
+set commentary
+set argtextobj
+set easymotion
+set textobj-entire
+set ReplaceWithRegister
+set ideajoin
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" KEYBINDINGS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use control-c instead of escape
+map <C-c> <Esc>
+" ctrl-s to save (MUST HAVE stty -ixon in zshrc file!
+map <C-s> :w<CR>
+" Alternate way to quit, ctrl-q
+map <C-q> :wq!<CR>
+
+map <silent> <Leader>n :bn<CR>
+" toggle relative line numbers
+map <silent> <Leader>rn :set rnu!<CR>
+
+map <leader><leader>r :action Run<CR>
+map <leader><leader>d :action Debug<CR>
+map <leader>r :action RenameElement<CR>
+map <leader><leader>x :action Stop<CR>
+
+map <leader>@ :action Annotate<CR>
+map <leader>g :action ActivateVersionControlToolWindow<CR>
+
+map <leader>b :action ToggleLineBreakpoint<CR>
+map <leader>o :action FileStructurePopup<CR>
