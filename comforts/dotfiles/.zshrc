@@ -9,6 +9,10 @@ if command -v most > /dev/null 2>&1; then
     export PAGER="most"
 fi
 
+if command -f jenv > /dev/null 2&>1; then
+	eval "$(jenv init -)"
+fi
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
