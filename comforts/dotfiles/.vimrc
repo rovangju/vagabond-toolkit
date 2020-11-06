@@ -3,6 +3,7 @@ autocmd bufwritepost .vimrc source %
 filetype plugin indent on
 syntax on
 
+set clipboard=unnamed
 set history=1000
 set colorcolumn=120
 
