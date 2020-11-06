@@ -8,7 +8,6 @@ set colorcolumn=120
 
 "no .swp file
 set nobackup
-
 "show hybrid lines 
 set nu 
 
@@ -28,7 +27,7 @@ set hlsearch
 set noerrorbells
 set novisualbell
 set paste
-set autoindent
+set smartindent 
 set wildmode=longest:full,full
 
 let g:airline_theme = 'base16'
@@ -96,8 +95,8 @@ nnoremap <C-q> :wq!<CR>
 let mapleader=","
 nnoremap <silent> <Leader>n :bn<CR>
 " explore folder of current buffer
-nnoremap <silent> <Leader>f :FZF %:h<CR>
+nnoremap <silent> <Leader>f :Files %:h<CR>
 " explore folder of home
-nnoremap <silent> <Leader>F :FZF<CR>
+nnoremap <silent> <Leader>F :Files<CR>
 " toggle relative line numbers
 nnoremap <silent> <Leader>rn :set rnu!<CR>
