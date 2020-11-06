@@ -2,17 +2,6 @@
 # Eliminate Software Flow Control (XON/XOFF flow control)
 stty -ixon
 
-export EDITOR=vim
-export FZF_DEFAULT_COMMAND="find . -type f -not -path '*/\.git/*'"
-
-if command -v most > /dev/null 2>&1; then
-    export PAGER="most"
-fi
-
-if command -f jenv > /dev/null 2&>1; then
-	eval "$(jenv init -)"
-fi
-
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -40,37 +29,37 @@ aprl() {
 aprc() {
 	# @TODO: reviewers ?
 	az repos pr create \
-	--draft \
-	--open \
-	--squash \
-	--target-branch ${@}
-}
+		--draft \
+		--open \
+		--squash \
+		--target-branch ${@}
+	}
 apro() {
-	
+
 	# @TODO: Use FZF with list
 	[[ ! ${1} ]] && echo "Pull request ID required (try aprl)" && return 1;
 
 	az repos pr show \
-	--id ${1} \
-	--open \
-	--output none
-}
+		--id ${1} \
+		--open \
+		--output none
+	}
 
 git-publish() {
-	branch=$(git rev-parse --abbrev-ref HEAD)
+branch=$(git rev-parse --abbrev-ref HEAD)
 
-	[[ ! ${branch} ]] && echo "No branch detected" && return 1;
+[[ ! ${branch} ]] && echo "No branch detected" && return 1;
 
-	echo -n "Publish and track branch: ${branch}? [yes|*]"
-	read answer
+echo -n "Publish and track branch: ${branch}? [yes|*]"
+read answer
 
-	case ${answer} in
-		"yes" ) ;;
-		*) return 1;;
-	esac
+case ${answer} in
+	"yes" ) ;;
+	*) return 1;;
+esac
 
-	git push origin ${branch}:${branch}
-	git branch ${branch} --set-upstream-to origin/${branch}
+git push origin ${branch}:${branch}
+git branch ${branch} --set-upstream-to origin/${branch}
 }
 
 [[ ! -f /usr/local/share/antigen/antigen.zsh ]] || source /usr/local/share/antigen/antigen.zsh
@@ -99,11 +88,22 @@ antigen theme romkatv/powerlevel10k
 antigen apply
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export EDITOR=vim
+export FZF_DEFAULT_COMMAND="find . -type f -not -path '*/\.git/*'"
+
+if command -v most > /dev/null 2>&1; then
+	export PAGER="most"
+fi
+
+if command -v jenv > /dev/null 2>&1; then
+	export PATH="$HOME/.jenv/shims:${PATH}"
+	export JAVA_HOME=$(jenv javahome)	
+fi
 
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-	        eval "$("$BASE16_SHELL/profile_helper.sh")"
+	[ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+	eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.os.zsh ]] || source ~/.os.zsh
@@ -113,5 +113,4 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 
 #END=$(gdate +%s%3N)
 #DIFF=$(( $END - $START ))
-
 #echo "init: $DIFF ms"
