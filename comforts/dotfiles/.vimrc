@@ -95,8 +95,8 @@ nnoremap <C-q> :wq!<CR>
 let mapleader=","
 nnoremap <silent> <Leader>n :bn<CR>
 " explore folder of current buffer
-nnoremap <silent> <Leader>f :Files %:h<CR>
+nnoremap <silent> <Leader>f :Files<CR>
 " explore folder of home
-nnoremap <silent> <Leader>F :Files<CR>
+nnoremap <silent> <Leader>F :Files ~/<CR>
 " toggle relative line numbers
 nnoremap <silent> <Leader>rn :set rnu!<CR>
