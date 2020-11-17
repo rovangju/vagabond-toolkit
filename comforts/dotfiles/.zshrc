@@ -97,7 +97,9 @@ fi
 
 if command -v jenv > /dev/null 2>&1; then
 	export PATH="$HOME/.jenv/shims:${PATH}"
-	export JAVA_HOME=$(jenv javahome)	
+	jhome() {
+		export JAVA_HOME=$(jenv javahome)
+	}
 fi
 
 BASE16_SHELL="$HOME/.config/base16-shell/"
