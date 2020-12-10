@@ -13,8 +13,7 @@ alias grw="./gradlew"
 alias vimhosts="sudo vi /private/etc/hosts"
 alias fdate="date +\"%Y%m%dT%H%M%S\""
 
-wx()
-{
+wx() {
 	# change Paris to your default location
 	local request="wttr.in/${1-West%20Fargo}"
 	[ "$(tput cols)" -lt 125 ] && request+='?n'
@@ -26,6 +25,7 @@ aprl() {
 	az repos pr list --output table
 	# @TODO: Make more fancy with jq
 }
+
 aprc() {
 	# @TODO: reviewers ?
 	az repos pr create \
@@ -34,8 +34,8 @@ aprc() {
 		--squash \
 		--target-branch ${@}
 	}
-apro() {
 
+apro() {
 	# @TODO: Use FZF with list
 	[[ ! ${1} ]] && echo "Pull request ID required (try aprl)" && return 1;
 
@@ -44,6 +44,10 @@ apro() {
 		--open \
 		--output none
 	}
+unalias gcb
+gcb() {
+	git branch | fzf | sed 's/\* //g' | xargs -I '{}' git checkout \{\}
+}
 
 git-publish() {
 branch=$(git rev-parse --abbrev-ref HEAD)
@@ -101,6 +105,13 @@ if command -v jenv > /dev/null 2>&1; then
 		export JAVA_HOME=$(jenv javahome)
 	}
 fi
+
+if type brew &>/dev/null; then
+	FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+	autoload -Uz compinit
+	compinit
+fi
+
 
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
