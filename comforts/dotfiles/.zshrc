@@ -105,7 +105,7 @@ apro() {
 	}
 unalias gcb
 gcb() {
-	git branch | fzf | sed 's/\* //g' | xargs -I '{}' git checkout \{\}
+	git for-each-ref --format="%(refname:short)" | fzf | sed 's/\* //g' | xargs -I '{}' git checkout \{\}
 }
 
 git-publish() {
@@ -124,6 +124,9 @@ esac
 git push origin ${branch}:${branch}
 git branch ${branch} --set-upstream-to origin/${branch}
 }
+
+eval "$(jenv init -)"
+
 #END=$(gdate +%s%3N)
 #DIFF=$(( $END - $START ))
 #echo "init: $DIFF ms"
