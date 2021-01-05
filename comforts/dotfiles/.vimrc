@@ -68,7 +68,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Language packs to help with syntax, indentation
-Plug 'sheerun/vim-polyglot'
+" Disabled: Cuasing issues with pasting 
+" Plug 'sheerun/vim-polyglot'
 
 " Nifty way to jump to symbols on screen (<leader><leader>s)
 Plug 'easymotion/vim-easymotion'
