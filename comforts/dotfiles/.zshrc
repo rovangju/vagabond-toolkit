@@ -81,7 +81,7 @@ wx() {
 
 # https://docs.microsoft.com/en-us/cli/azure/ext/azure-devops/repos/pr?view=azure-cli-latest#ext_azure_devops_az_repos_pr_create
 aprl() {
-	az repos pr list --output table
+	az repos pr list --output table --project ${@}
 	# @TODO: Make more fancy with jq
 }
 
@@ -103,12 +103,14 @@ apro() {
 		--open \
 		--output none
 	}
+
 unalias gcb
 gcb() {
-	git for-each-ref --format="%(refname:short)" | fzf | sed 's/\* //g' | xargs -I '{}' git checkout \{\}
+	git for-each-ref --format="%(refname:short)" | fzf | sed 's/\* //g' | xargs -I '{}' git switch -c \{\}
 }
 
 git-publish() {
+
 branch=$(git rev-parse --abbrev-ref HEAD)
 
 [[ ! ${branch} ]] && echo "No branch detected" && return 1;
@@ -124,9 +126,7 @@ esac
 git push origin ${branch}:${branch}
 git branch ${branch} --set-upstream-to origin/${branch}
 }
-
-eval "$(jenv init -)"
-
 #END=$(gdate +%s%3N)
 #DIFF=$(( $END - $START ))
 #echo "init: $DIFF ms"
+eval "$(jenv init -)"
