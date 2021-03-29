@@ -39,7 +39,7 @@ antigen bundle kubermatic/fubectl
 antigen theme romkatv/powerlevel10k
 antigen apply
 
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:~/bin:$PATH"
 export EDITOR=vim
 export FZF_DEFAULT_COMMAND="find . -type f -not -path '*/\.git/*'"
 
