@@ -14,8 +14,12 @@ alias vimhosts="sudo vi /private/etc/hosts"
 alias fdate="date +\"%Y%m%dT%H%M%S\""
 alias tf="terraform" 
 
+
+[[ ! -d /opt/homebrew/bin ]] || export PATH=$PATH:/opt/homebrew/bin
+
 [[ ! -f /usr/local/share/antigen/antigen.zsh ]] || source /usr/local/share/antigen/antigen.zsh
 [[ ! -f /usr/share/zsh-antigen/antigen.zsh ]] || source /usr/share/zsh-antigen/antigen.zsh
+[[ ! -f /opt/homebrew/share/antigen/antigen.zsh ]] || source /opt/homebrew/share/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
