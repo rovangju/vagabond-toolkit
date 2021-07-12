@@ -32,6 +32,7 @@ map <leader><leader>b :action CompileDirty<CR>
 map <leader><leader>r :action Run<CR>
 map <leader><leader>d :action Debug<CR>
 map <leader><leader>j :action JRebel Debug<CR>
+map <leader>rt <ESC>:action RunClass<CR>
 map <leader>fr <ESC> :action RenameElement<CR>
 map <leader><leader>x :action Stop<CR>
 map <leader>fu <ESC>:action ReformatCode<CR>
