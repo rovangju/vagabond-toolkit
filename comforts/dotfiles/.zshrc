@@ -20,6 +20,7 @@ alias tf="terraform"
 [[ ! -f /usr/local/share/antigen/antigen.zsh ]] || source /usr/local/share/antigen/antigen.zsh
 [[ ! -f /usr/share/zsh-antigen/antigen.zsh ]] || source /usr/share/zsh-antigen/antigen.zsh
 [[ ! -f /opt/homebrew/share/antigen/antigen.zsh ]] || source /opt/homebrew/share/antigen/antigen.zsh
+[[ ! -f $HOME/.kustomize ]] || source $HOME/.kustomize
 
 antigen use oh-my-zsh
 
@@ -39,6 +40,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 
 antigen bundle wfxr/forgit
 antigen bundle kubermatic/fubectl
+
 
 antigen theme romkatv/powerlevel10k
 antigen apply
@@ -134,3 +136,19 @@ git branch ${branch} --set-upstream-to origin/${branch}
 #DIFF=$(( $END - $START ))
 #echo "init: $DIFF ms"
 eval "$(jenv init -)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
