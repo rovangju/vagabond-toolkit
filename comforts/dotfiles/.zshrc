@@ -49,6 +49,12 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:${HOME}/bin:$PATH"
 export EDITOR=vim
 export FZF_DEFAULT_COMMAND="find . -type f -not -path '*/\.git/*'"
 
+if test -d "$HOME/.kube/configs"; then
+	for file in $(find $HOME/.kube/configs -type f); do
+		export KUBECONFIG="$KUBECONFIG:$file"
+	done
+fi
+
 if command -v most > /dev/null 2>&1; then
 	export PAGER="most"
 fi
