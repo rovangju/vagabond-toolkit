@@ -52,6 +52,8 @@ Plug 'editorconfig/editorconfig-vim'
 "Shows indent line alignment
 Plug 'Yggdroot/indentLine'
 
+Plug 'hashivim/vim-hashicorp-tools'
+
 " https://github.com/preservim/nerdcommenter
 "Easy commenting (<leader>cc, <leader>cs, <leader>cu, <leader>cn, <leader>c$, <leader>c-space)
 Plug 'scrooloose/nerdcommenter'
@@ -61,7 +63,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Git integration
-Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 "FZF! Fuzzy file finding, :Buffers, :Files, :History, :Windows, :Commits, etc
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
