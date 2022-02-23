@@ -83,6 +83,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [[ ! -f ~/.vim/plugged/fzf/shell/key-bindings.zsh ]] || source ~/.vim/plugged/fzf/shell/key-bindings.zsh
 [[ ! -f ~/.vim/plugged/fzf/shell/completion.zsh ]] || source ~/.vim/plugged/fzf/shell/completion.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -d ~/go/bin ]] || export PATH=$PATH:~/go/bin
 
 wx() {
 	# change Paris to your default location
