@@ -12,9 +12,10 @@ set nobackup
 "show hybrid lines 
 set nu 
 
-"4 space tabs
-set ts=4
+set expandtab
+set ts=2
 set shiftwidth=4
+set softtabstop=2
 
 set cursorline
 set laststatus=2
