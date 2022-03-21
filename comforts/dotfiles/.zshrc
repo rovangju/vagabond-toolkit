@@ -122,6 +122,11 @@ gcb() {
 	git for-each-ref --format="%(refname:short)" | fzf | sed 's/\* //g' | xargs -I '{}' git switch -c \{\}
 }
 
+awsp() {
+	local profile=$(aws configure list-profiles | sort | fzf --height="30%" --header="PROFILES" --prompt "Filter >" --reverse)
+	export AWS_PROFILE=$profile
+}
+
 git-publish() {
 
 branch=$(git rev-parse --abbrev-ref HEAD)
