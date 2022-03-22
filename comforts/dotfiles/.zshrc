@@ -6,9 +6,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+alias dcp="docker-compose"
+alias lzd="lazydocker"
 alias kcgp="kubectl get pods -owide |awk '{print \$7 , \$1 , \$2 , \$3 , \$4 }' |sort |column -t"
-alias dcp="nerdctl.lima compose"
-alias docker="nerdctl.lima"
 alias grw="./gradlew"
 alias vimhosts="sudo vi /private/etc/hosts"
 alias fdate="date +\"%Y%m%dT%H%M%S\""
