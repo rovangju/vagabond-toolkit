@@ -28,6 +28,10 @@ map <silent> <Leader>n :bn<CR>
 " toggle relative line numbers
 map <silent> <Leader>rn :set rnu!<CR>
 
+map <leader><leader>sf :action :cursive.actions.paredit/slurp-forwards<CR>
+map <leader><leader>fs :action :cursive.actions.paredit/barf-forwards<CR>
+map <leader><leader>rl :action :cursive.repl.actions/load-file<CR>
+
 map <leader><leader>b :action CompileDirty<CR>
 map <leader><leader>r :action Run<CR>
 map <leader><leader>d :action Debug<CR>
