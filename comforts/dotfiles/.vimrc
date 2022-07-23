@@ -12,10 +12,10 @@ set nobackup
 "show hybrid lines 
 set nu 
 
+"space tabs
 set expandtab
 set ts=2
-set shiftwidth=4
-set softtabstop=2
+set shiftwidth=2
 
 set cursorline
 set laststatus=2
@@ -46,6 +46,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+
+" Surround help - cs = change surround, e.g.: cs"' - change surrounding " to '
+Plug 'tpope/vim-surround'
 
 " Respects editorconfig
 Plug 'editorconfig/editorconfig-vim'
