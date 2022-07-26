@@ -54,7 +54,7 @@ Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
 
 "Shows indent line alignment
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 
 Plug 'hashivim/vim-hashicorp-tools'
 
