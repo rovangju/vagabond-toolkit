@@ -1,6 +1,6 @@
 autocmd bufwritepost .vimrc source %
-
-filetype plugin indent on
+set backspace=indent,eol,start
+"filetype plugin indent on
 syntax on
 
 set clipboard=unnamed
@@ -54,7 +54,7 @@ Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
 
 "Shows indent line alignment
-"Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 
 Plug 'hashivim/vim-hashicorp-tools'
 
@@ -108,3 +108,4 @@ nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>F :Files ~/<CR>
 " toggle relative line numbers
 nnoremap <silent> <Leader>rn :set rnu!<CR>
+
