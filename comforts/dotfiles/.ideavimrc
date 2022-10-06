@@ -6,7 +6,7 @@ set incsearch
 set showmode
 
 set surround
-set multiple-cursors
+"set multiple-cursors
 set commentary
 set argtextobj
 set easymotion
@@ -30,7 +30,10 @@ map <silent> <Leader>rn :set rnu!<CR>
 
 map <leader><leader>sf :action :cursive.actions.paredit/slurp-forwards<CR>
 map <leader><leader>fs :action :cursive.actions.paredit/barf-forwards<CR>
-map <leader><leader>rl :action :cursive.repl.actions/load-file<CR>
+map <leader><leader>lf :action :cursive.repl.actions/load-file<CR>
+map <leader><Bslash> :action :cursive.repl.actions/jump-to-repl<CR>
+map <leader>cp :action :cursive.repl.actions/run-top-sexp<CR>
+map <leader>cc :action :cursive.repl.actions/run-last-sexp<CR>
 
 map <leader><leader>b :action CompileDirty<CR>
 map <leader><leader>r :action Run<CR>
