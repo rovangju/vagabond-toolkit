@@ -6,13 +6,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-alias af="airflow"
+#alias docker="nerdctl.lima"
+#alias dcp="nerdctl.lima compose"
 alias kcgp="kubectl get pods -owide |awk '{print \$7 , \$1 , \$2 , \$3 , \$4 }' |sort |column -t"
 alias grw="./gradlew"
 alias vimhosts="sudo vi /private/etc/hosts"
 alias fdate="date +\"%Y%m%dT%H%M%S\""
 alias tf="terraform" 
-
+alias af="airflow"
 
 [[ ! -d /opt/homebrew/bin ]] || export PATH=/opt/homebrew/bin:$PATH
 
@@ -39,7 +40,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 
 antigen bundle wfxr/forgit
 antigen bundle kubermatic/fubectl
-
+antigen bundle rovangju/fzf-brew
 
 antigen theme romkatv/powerlevel10k
 antigen apply
