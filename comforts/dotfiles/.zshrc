@@ -15,7 +15,7 @@ alias fdate="date +\"%Y%m%dT%H%M%S\""
 alias tf="terraform" 
 alias af="airflow"
 
-[[ ! -d /opt/homebrew/bin ]] || export PATH=/opt/homebrew/bin:$PATH
+[[ ! -d /opt/homebrew/bin ]] || export PATH=/opt/homebrew/bin:$(brew --prefix)/opt/coreutils/libexec/gnubin:${PATH}
 
 [[ ! -f /usr/local/share/antigen/antigen.zsh ]] || source /usr/local/share/antigen/antigen.zsh
 [[ ! -f /usr/share/zsh-antigen/antigen.zsh ]] || source /usr/share/zsh-antigen/antigen.zsh
