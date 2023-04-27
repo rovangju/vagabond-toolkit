@@ -16,11 +16,11 @@ alias tf="terraform"
 alias af="airflow"
 
 [[ ! -d /opt/homebrew/bin ]] || export PATH=/opt/homebrew/bin:$(brew --prefix)/opt/coreutils/libexec/gnubin:${PATH}
-
+[[ ! -d ${HOME}/.docker/bin ]] || export PATH=${HOME}/.docker/bin:${PATH}
 [[ ! -f /usr/local/share/antigen/antigen.zsh ]] || source /usr/local/share/antigen/antigen.zsh
 [[ ! -f /usr/share/zsh-antigen/antigen.zsh ]] || source /usr/share/zsh-antigen/antigen.zsh
 [[ ! -f /opt/homebrew/share/antigen/antigen.zsh ]] || source /opt/homebrew/share/antigen/antigen.zsh
-[[ ! -f $HOME/.kustomize ]] || source $HOME/.kustomize
+[[ ! -f ${HOME}/.kustomize ]] || source ${HOME}/.kustomize
 
 antigen use oh-my-zsh
 
