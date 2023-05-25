@@ -15,7 +15,7 @@ alias fdate="date +\"%Y%m%dT%H%M%S\""
 alias tf="terraform" 
 alias af="airflow"
 
-[[ ! -d /opt/homebrew/bin ]] || export PATH=/opt/homebrew/bin:$(brew --prefix)/opt/coreutils/libexec/gnubin:${PATH}
+[[ ! -d /opt/homebrew/bin ]] || export PATH=/opt/homebrew/bin:$(/opt/homebrew/bin/brew --prefix)/opt/coreutils/libexec/gnubin:${PATH}
 [[ ! -d ${HOME}/.docker/bin ]] || export PATH=${HOME}/.docker/bin:${PATH}
 [[ ! -f /usr/local/share/antigen/antigen.zsh ]] || source /usr/local/share/antigen/antigen.zsh
 [[ ! -f /usr/share/zsh-antigen/antigen.zsh ]] || source /usr/share/zsh-antigen/antigen.zsh
@@ -117,14 +117,13 @@ apro() {
 		--output none
 	}
 
-unalias gcb
-gcb() {
-	git for-each-ref --format="%(refname:short)" | fzf | sed 's/\* //g' | xargs -I '{}' git switch -c \{\}
-}
-
 awsp() {
 	local profile=$(aws configure list-profiles | sort | fzf --height="30%" --header="PROFILES" --prompt "Filter >" --reverse)
 	export AWS_PROFILE=$profile
+}
+awsl() {
+	awsp
+	aws sso login --profile "${AWS_PROFILE}"
 }
 
 git-publish() {
@@ -166,3 +165,6 @@ unset __conda_setup
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/vault vault
