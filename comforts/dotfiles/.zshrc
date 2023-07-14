@@ -31,8 +31,6 @@ antigen bundle gradle
 antigen bundle mvn
 antigen bundle npm
 antigen bundle git-flow
-# this is absurdly slow ...
-#antigen bundle jenv
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
@@ -146,55 +144,56 @@ git branch ${branch} --set-upstream-to origin/${branch}
 #END=$(gdate +%s%3N)
 #DIFF=$(( $END - $START ))
 #echo "init: $DIFF ms"
-eval "$(jenv init -)"
+#eval "$(jenv init -)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+		eval "$__conda_setup"
 else
-    if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
-    fi
+		if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
+				. "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
+		else
+				export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
+		fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+bindkey -v
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/vault vault
 
-bindkey -v
-export KEYTIMEOUT=1
+export keytimeout=1
 
 cursor_mode() {
-    # See https://ttssh2.osdn.jp/manual/4/en/usage/tips/vim.html for cursor shapes
-    cursor_block='\e[2 q'
-    cursor_beam='\e[6 q'
+		# See https://ttssh2.osdn.jp/manual/4/en/usage/tips/vim.html for cursor shapes
+		cursor_block='\e[2 q'
+		cursor_beam='\e[6 q'
 
-    function zle-keymap-select {
-        if [[ ${KEYMAP} == vicmd ]] ||
-            [[ $1 = 'block' ]]; then
-            echo -ne $cursor_block
-        elif [[ ${KEYMAP} == main ]] ||
-            [[ ${KEYMAP} == viins ]] ||
-            [[ ${KEYMAP} = '' ]] ||
-            [[ $1 = 'beam' ]]; then
-            echo -ne $cursor_beam
-        fi
-    }
+		function zle-keymap-select {
+				if [[ ${KEYMAP} == vicmd ]] ||
+						[[ $1 = 'block' ]]; then
+						echo -ne $cursor_block
+				elif [[ ${KEYMAP} == main ]] ||
+						[[ ${KEYMAP} == viins ]] ||
+						[[ ${KEYMAP} = '' ]] ||
+						[[ $1 = 'beam' ]]; then
+						echo -ne $cursor_beam
+				fi
+		}
 
-    zle-line-init() {
-        echo -ne $cursor_beam
-    }
+		zle-line-init() {
+				echo -ne $cursor_beam
+		}
 
-    zle -N zle-keymap-select
-    zle -N zle-line-init
+		zle -N zle-keymap-select
+		zle -N zle-line-init
 }
 
 cursor_mode
@@ -207,11 +206,11 @@ autoload -Uz select-bracketed select-quoted
 zle -N select-quoted
 zle -N select-bracketed
 for km in viopp visual; do
-  bindkey -M $km -- '-' vi-up-line-or-history
-  for c in {a,i}${(s..)^:-\'\"\`\|,./:;=+@}; do
-    bindkey -M $km $c select-quoted
-  done
-  for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
-    bindkey -M $km $c select-bracketed
-  done
+	bindkey -M $km -- '-' vi-up-line-or-history
+	for c in {a,i}${(s..)^:-\'\"\`\|,./:;=+@}; do
+		bindkey -M $km $c select-quoted
+	done
+	for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+		bindkey -M $km $c select-bracketed
+	done
 done
