@@ -23,19 +23,16 @@ alias af="airflow"
 [[ ! -f ${HOME}/.kustomize ]] || source ${HOME}/.kustomize
 
 antigen use oh-my-zsh
-
 antigen bundle git
-antigen bundle docker
-antigen bundle docker-compose
-antigen bundle gradle
-antigen bundle mvn
-antigen bundle npm
-antigen bundle git-flow
-
+#antigen bundle docker # never use - deprecate
+#antigen bundle docker-compose # never use - deprecate
+#antigen bundle gradle
+#antigen bundle mvn
+#antigen bundle npm
+#antigen bundle git-flow
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
+#antigen bundle zsh-users/zsh-completions # never use - deprecate
 antigen bundle zsh-users/zsh-autosuggestions
-
 antigen bundle wfxr/forgit
 antigen bundle kubermatic/fubectl
 antigen bundle rovangju/fzf-brew
@@ -63,6 +60,7 @@ if command -v jenv > /dev/null 2>&1; then
 		export JAVA_HOME=$(jenv javahome)
 	}
 fi
+
 
 if type brew &>/dev/null; then
 	FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
@@ -162,13 +160,13 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-bindkey -v
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/vault vault
 
+bindkey -v
 export keytimeout=1
 
 cursor_mode() {
