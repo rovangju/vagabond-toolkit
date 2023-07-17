@@ -12,12 +12,6 @@ fi
 [[ ! -f /usr/share/zsh-antigen/antigen.zsh ]] || source /usr/share/zsh-antigen/antigen.zsh
 [[ ! -f /opt/homebrew/share/antigen/antigen.zsh ]] || source /opt/homebrew/share/antigen/antigen.zsh
 
-alias kcgp="kubectl get pods -owide |awk '{print \$7 , \$1 , \$2 , \$3 , \$4 }' |sort |column -t"
-alias ls="ls --color"
-alias grw="./gradlew"
-alias vimhosts="sudo vi /private/etc/hosts"
-alias fdate="date +\"%Y%m%dT%H%M%S\""
-
 antigen use oh-my-zsh
 antigen bundle git # helpers like glo, gd, gs, gp, etc.
 antigen bundle aliases # 'acs' - lists groups of aliases so you know what's aliased from where
@@ -31,6 +25,13 @@ antigen bundle rovangju/fzf-brew
 
 antigen theme romkatv/powerlevel10k
 antigen apply
+
+alias kcgp="kubectl get pods -owide |awk '{print \$7 , \$1 , \$2 , \$3 , \$4 }' |sort |column -t"
+alias ls="ls --color"
+alias grw="./gradlew"
+alias vimhosts="sudo vi /private/etc/hosts"
+alias fdate="date +\"%Y%m%dT%H%M%S\""
+
 
 export EDITOR=vim
 export FZF_DEFAULT_COMMAND="find . -type f -not -path '*/\.git/*'"
