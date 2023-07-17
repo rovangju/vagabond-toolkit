@@ -6,32 +6,24 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#alias docker="nerdctl.lima"
-#alias dcp="nerdctl.lima compose"
-alias kcgp="kubectl get pods -owide |awk '{print \$7 , \$1 , \$2 , \$3 , \$4 }' |sort |column -t"
-alias grw="./gradlew"
-alias vimhosts="sudo vi /private/etc/hosts"
-alias fdate="date +\"%Y%m%dT%H%M%S\""
-alias tf="terraform" 
-alias af="airflow"
-
 [[ ! -d /opt/homebrew/bin ]] || export PATH=/opt/homebrew/bin:$(/opt/homebrew/bin/brew --prefix)/opt/coreutils/libexec/gnubin:${PATH}
 [[ ! -d ${HOME}/.docker/bin ]] || export PATH=${HOME}/.docker/bin:${PATH}
 [[ ! -f /usr/local/share/antigen/antigen.zsh ]] || source /usr/local/share/antigen/antigen.zsh
 [[ ! -f /usr/share/zsh-antigen/antigen.zsh ]] || source /usr/share/zsh-antigen/antigen.zsh
 [[ ! -f /opt/homebrew/share/antigen/antigen.zsh ]] || source /opt/homebrew/share/antigen/antigen.zsh
-[[ ! -f ${HOME}/.kustomize ]] || source ${HOME}/.kustomize
+
+alias kcgp="kubectl get pods -owide |awk '{print \$7 , \$1 , \$2 , \$3 , \$4 }' |sort |column -t"
+alias ls="ls --color"
+alias grw="./gradlew"
+alias vimhosts="sudo vi /private/etc/hosts"
+alias fdate="date +\"%Y%m%dT%H%M%S\""
 
 antigen use oh-my-zsh
-antigen bundle git
-#antigen bundle docker # never use - deprecate
-#antigen bundle docker-compose # never use - deprecate
-#antigen bundle gradle
-#antigen bundle mvn
-#antigen bundle npm
-#antigen bundle git-flow
+antigen bundle git # helpers like glo, gd, gs, gp, etc.
+antigen bundle aliases # 'acs' - lists groups of aliases so you know what's aliased from where
+antigen bundle terraform # Adds tf, tfv, tfa, tfp, tfc, tfd, etc helpers.
+antigen bundle agkozak/zsh-z # add "z" command :P
 antigen bundle zsh-users/zsh-syntax-highlighting
-#antigen bundle zsh-users/zsh-completions # never use - deprecate
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle wfxr/forgit
 antigen bundle kubermatic/fubectl
@@ -40,7 +32,6 @@ antigen bundle rovangju/fzf-brew
 antigen theme romkatv/powerlevel10k
 antigen apply
 
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:${HOME}/bin:$PATH"
 export EDITOR=vim
 export FZF_DEFAULT_COMMAND="find . -type f -not -path '*/\.git/*'"
 
@@ -80,6 +71,9 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [[ ! -f ~/.vim/plugged/fzf/shell/completion.zsh ]] || source ~/.vim/plugged/fzf/shell/completion.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [[ ! -d ~/go/bin ]] || export PATH=$PATH:~/go/bin
+[[ ! -f ${HOME}/.kustomize ]] || source ${HOME}/.kustomize
+[[ ! -d ${HOME}/.krew ]] || export PATH=${HOME}/.krew/bin:${PATH}
+
 
 wx() {
 	# change Paris to your default location
@@ -159,16 +153,16 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
+# Keep this before fzf 
+bindkey -v
+export keytimeout=1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/vault vault
 
-bindkey -v
-export keytimeout=1
-
+# Enable vim mode cursor changing 
 cursor_mode() {
 		# See https://ttssh2.osdn.jp/manual/4/en/usage/tips/vim.html for cursor shapes
 		cursor_block='\e[2 q'
