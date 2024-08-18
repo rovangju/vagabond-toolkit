@@ -76,7 +76,16 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [[ ! -f ${HOME}/.kustomize ]] || source ${HOME}/.kustomize
 [[ ! -d ${HOME}/.krew ]] || export PATH=${HOME}/.krew/bin:${PATH}
 
-
+down () {
+	local dest
+	dest=$( find . -not -name "." -name ".*" -prune -o -type d -print | fzf --select-1 --query "${*}" )
+	if [[ -z "$dest" ]]
+	then
+		return 1
+	fi
+	echo "cd $( readlink -f $dest )" >&2
+	cd "$dest"
+}
 wx() {
 	# change Paris to your default location
 	local request="wttr.in/${1-West%20Fargo}"
@@ -199,6 +208,7 @@ bindkey -M vicmd v edit-command-line
 autoload -Uz select-bracketed select-quoted
 zle -N select-quoted
 zle -N select-bracketed
+
 for km in viopp visual; do
 	bindkey -M $km -- '-' vi-up-line-or-history
 	for c in {a,i}${(s..)^:-\'\"\`\|,./:;=+@}; do
