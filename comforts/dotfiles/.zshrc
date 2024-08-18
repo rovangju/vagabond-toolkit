@@ -8,6 +8,7 @@ fi
 
 [[ ! -d /opt/homebrew/bin ]] || export PATH=/opt/homebrew/bin:$(/opt/homebrew/bin/brew --prefix)/opt/coreutils/libexec/gnubin:${PATH}
 [[ ! -d ${HOME}/.docker/bin ]] || export PATH=${HOME}/.docker/bin:${PATH}
+[[ ! -d ${HOME}/bin ]] || export PATH=${HOME}/bin:${PATH}
 [[ ! -f /usr/local/share/antigen/antigen.zsh ]] || source /usr/local/share/antigen/antigen.zsh
 [[ ! -f /usr/share/zsh-antigen/antigen.zsh ]] || source /usr/share/zsh-antigen/antigen.zsh
 [[ ! -f /opt/homebrew/share/antigen/antigen.zsh ]] || source /opt/homebrew/share/antigen/antigen.zsh
@@ -141,15 +142,15 @@ git branch ${branch} --set-upstream-to origin/${branch}
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/opt/homebrew/Caskroom/mambaforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
-		eval "$__conda_setup"
+    eval "$__conda_setup"
 else
-		if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
-				. "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
-		else
-				export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
-		fi
+    if [ -f "/opt/homebrew/Caskroom/mambaforge/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/mambaforge/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/Caskroom/mambaforge/base/bin:$PATH"
+    fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
@@ -207,3 +208,7 @@ for km in viopp visual; do
 		bindkey -M $km $c select-bracketed
 	done
 done
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

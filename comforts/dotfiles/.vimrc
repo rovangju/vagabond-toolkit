@@ -1,22 +1,23 @@
 autocmd bufwritepost .vimrc source %
 set backspace=indent,eol,start
-"filetype plugin indent on
 syntax on
 
 set clipboard=unnamed
 set history=1000
 set colorcolumn=120
+set conceallevel=1
 
 "no .swp file
 set nobackup
-"show hybrid lines 
-set nu 
+"show hybrid lines
+set nu
 
 "space tabs
 set expandtab
 set ts=2
 set shiftwidth=2
 
+set mouse=a
 set cursorline
 set laststatus=2
 set showtabline=2
@@ -28,21 +29,25 @@ set smartcase
 set hlsearch
 set noerrorbells
 set novisualbell
-set paste
-set smartindent 
+set smartindent
 set wildmode=longest:full,full
 
-let g:airline_theme = 'base16'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#fugitiveline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_skip_empty_sections = 1
+" Encoding
+set encoding=utf-8
+set bomb
+set binary
+set ttyfast
+
+filetype plugin indent on
+
+" faster scroll when syntax on
+set lazyredraw
 
 " Make sure git is installed
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
- autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -52,11 +57,6 @@ Plug 'tpope/vim-surround'
 
 " Respects editorconfig
 Plug 'editorconfig/editorconfig-vim'
-
-"Shows indent line alignment
-"Plug 'Yggdroot/indentLine'
-
-Plug 'hashivim/vim-hashicorp-tools'
 
 " https://github.com/preservim/nerdcommenter
 "Easy commenting (<leader>cc, <leader>cs, <leader>cu, <leader>cn, <leader>c$, <leader>c-space)
@@ -74,8 +74,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Language packs to help with syntax, indentation
-" Disabled: Cuasing issues with pasting 
-" Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
+" If issues take a look at let g:polyglot_disabled = ['autoindent']
 
 " Nifty way to jump to symbols on screen (<leader><leader>s)
 Plug 'easymotion/vim-easymotion'
@@ -83,12 +83,39 @@ Plug 'easymotion/vim-easymotion'
 " Base 16 vim theme support
 Plug 'chriskempson/base16-vim'
 
+" Remove trailing
+Plug 'ntpeters/vim-better-whitespace'
+
+" Cute filetype icons
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'ConradIrwin/vim-bracketed-paste' " set paste mode automatically to avoid indentation issues
+"Plug 'sickill/vim-pasta' " Pasting with indentation context
+
+" :Copilot setup to start
+Plug 'github/copilot.vim'
+
+" mg979/vim-visual-multi
+
+" Visual feedback for yanks
+Plug 'machakann/vim-highlightedyank'
+
 call plug#end()
 
 if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
+	let base16colorspace=256
+	source ~/.vimrc_background
 endif
+
+let g:strip_only_modified_lines=1
+let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
+
+let g:airline_theme = 'base16'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#fugitiveline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYBINDINGS
@@ -103,9 +130,7 @@ nnoremap <C-q> :wq!<CR>
 let mapleader=","
 nnoremap <silent> <Leader>n :bn<CR>
 " explore folder of current buffer
-nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>fb :Files<CR>
 " explore folder of home
-nnoremap <silent> <Leader>F :Files ~/<CR>
-" toggle relative line numbers
-nnoremap <silent> <Leader>rn :set rnu!<CR>
+nnoremap <silent> <Leader>fh :Files ~/<CR>
 
