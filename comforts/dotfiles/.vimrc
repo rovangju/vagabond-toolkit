@@ -1,6 +1,5 @@
 autocmd bufwritepost .vimrc source %
 set backspace=indent,eol,start
-syntax on
 
 set clipboard=unnamed
 set history=1000
@@ -34,12 +33,13 @@ set wildmode=longest:full,full
 
 " Encoding
 set encoding=utf-8
-set bomb
 set binary
 set ttyfast
 
+set nocompatible
 filetype plugin indent on
-
+" has to be after filetype
+syntax on
 " faster scroll when syntax on
 set lazyredraw
 
@@ -93,7 +93,7 @@ Plug 'ConradIrwin/vim-bracketed-paste' " set paste mode automatically to avoid i
 "Plug 'sickill/vim-pasta' " Pasting with indentation context
 
 " :Copilot setup to start
-Plug 'github/copilot.vim'
+"Plug 'github/copilot.vim'
 
 " mg979/vim-visual-multi
 
