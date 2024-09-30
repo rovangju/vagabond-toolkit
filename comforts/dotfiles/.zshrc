@@ -37,6 +37,8 @@ alias fdate="date +\"%Y%m%dT%H%M%S\""
 export EDITOR=vim
 export FZF_DEFAULT_COMMAND="find . -type f -not -path '*/\.git/*'"
 
+export PYTHONPYCACHEPREFIX="$HOME/.cache/cpython/"
+
 if test -d "$HOME/.kube/configs"; then
 	for file in $(find $HOME/.kube/configs -type f); do
 		export KUBECONFIG="$KUBECONFIG:$file"
@@ -65,7 +67,7 @@ fi
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
 	[ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-	source "$BASE16_SHELL/profile_helper.sh"
+	eval $"("$BASE16_SHELL/profile_helper.sh")"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.os.zsh ]] || source ~/.os.zsh
@@ -76,21 +78,18 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [[ ! -f ${HOME}/.kustomize ]] || source ${HOME}/.kustomize
 [[ ! -d ${HOME}/.krew ]] || export PATH=${HOME}/.krew/bin:${PATH}
 
-down () {
-	local dest
-	dest=$( find . -not -name "." -name ".*" -prune -o -type d -print | fzf --select-1 --query "${*}" )
-	if [[ -z "$dest" ]]
-	then
-		return 1
-	fi
-	echo "cd $( readlink -f $dest )" >&2
-	cd "$dest"
-}
+
 wx() {
 	# change Paris to your default location
 	local request="wttr.in/${1-West%20Fargo}"
 	[ "$(tput cols)" -lt 125 ] && request+='?n'
 	curl -H "Accept-Language: ${LANG%_*}" --compressed "$request"
+}
+
+rando() {
+	if [[ ! ${1} ]] && echo "Password length required" && return 1;
+
+	tr -dc '[:alnum:][:punct:]' < /dev/urandom | head -c ${1}
 }
 
 # https://docs.microsoft.com/en-us/cli/azure/ext/azure-devops/repos/pr?view=azure-cli-latest#ext_azure_devops_az_repos_pr_create
@@ -144,27 +143,8 @@ esac
 git push origin ${branch}:${branch}
 git branch ${branch} --set-upstream-to origin/${branch}
 }
-#END=$(gdate +%s%3N)
-#DIFF=$(( $END - $START ))
-#echo "init: $DIFF ms"
-#eval "$(jenv init -)"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/Caskroom/mambaforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/homebrew/Caskroom/mambaforge/base/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/Caskroom/mambaforge/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/homebrew/Caskroom/mambaforge/base/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# Keep this before fzf 
+#
+# Keep this before fzf
 bindkey -v
 export keytimeout=1
 
@@ -173,7 +153,7 @@ export keytimeout=1
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/vault vault
 
-# Enable vim mode cursor changing 
+# Enable vim mode cursor changing
 cursor_mode() {
 		# See https://ttssh2.osdn.jp/manual/4/en/usage/tips/vim.html for cursor shapes
 		cursor_block='\e[2 q'
@@ -208,7 +188,6 @@ bindkey -M vicmd v edit-command-line
 autoload -Uz select-bracketed select-quoted
 zle -N select-quoted
 zle -N select-bracketed
-
 for km in viopp visual; do
 	bindkey -M $km -- '-' vi-up-line-or-history
 	for c in {a,i}${(s..)^:-\'\"\`\|,./:;=+@}; do
@@ -222,3 +201,23 @@ done
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/mambaforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/Caskroom/mambaforge/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/mambaforge/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/Caskroom/mambaforge/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/opt/homebrew/Caskroom/mambaforge/base/etc/profile.d/mamba.sh" ]; then
+    . "/opt/homebrew/Caskroom/mambaforge/base/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
