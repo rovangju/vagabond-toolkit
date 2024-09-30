@@ -83,7 +83,7 @@ Plug 'easymotion/vim-easymotion'
 " Base 16 vim theme support
 Plug 'chriskempson/base16-vim'
 
-" Remove trailing
+" Remove trailing (ensure diffutils installed)
 Plug 'ntpeters/vim-better-whitespace'
 
 " Cute filetype icons
