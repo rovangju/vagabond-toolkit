@@ -1,0 +1,14 @@
+{
+    show_selection_mark: true
+
+    verbs: [
+    {
+        invocation: edit
+        shortcut: e
+        key: enter
+        apply_to: "text_file"
+        execution: "$EDITOR +{line} {file}"
+        leave_broot: false
+    }
+    ]
+}
