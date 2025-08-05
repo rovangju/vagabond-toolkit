@@ -9,7 +9,7 @@ if ! command -v pbcopy > /dev/null 2>&1; then
 		alias pbcopy='clipcopy'
 		alias pbpaste='clippaste'	
 	fi
-	if command -v clip.exe > /dev/null 2>&1; then
+	else if command -v clip.exe > /dev/null 2>&1; then
 		alias pbcopy='clip.exe'
 		alias pbpaste="powershell.exe Get-Clipboard | tr -d '\r'"
  	else if command -v xclip > /dev/null 2>&1; then
