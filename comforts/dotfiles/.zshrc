@@ -20,9 +20,8 @@ antigen bundle terraform # Adds tf, tfv, tfa, tfp, tfc, tfd, etc helpers.
 antigen bundle agkozak/zsh-z # add "z" command :P
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle wfxr/forgit
-antigen bundle kubermatic/fubectl
-antigen bundle rovangju/fzf-brew
+antigen bundle wfxr/forgit@main
+antigen bundle kubermatic/fubectl@main
 
 antigen theme romkatv/powerlevel10k
 antigen apply
@@ -201,23 +200,4 @@ done
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/Caskroom/mambaforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/homebrew/Caskroom/mambaforge/base/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/Caskroom/mambaforge/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/homebrew/Caskroom/mambaforge/base/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-if [ -f "/opt/homebrew/Caskroom/mambaforge/base/etc/profile.d/mamba.sh" ]; then
-    . "/opt/homebrew/Caskroom/mambaforge/base/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
 
