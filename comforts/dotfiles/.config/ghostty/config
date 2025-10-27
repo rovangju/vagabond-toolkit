@@ -1,0 +1,29 @@
+# Waiting on https://github.com/ghostty-org/ghostty/issues/4335 for my beloved  ctrl>ctrl
+
+font-family = "MesloLGMDZ Nerd Font Mono"
+font-size = 14
+
+keybind = global:cmd+backquote=toggle_quick_terminal
+keybind = ctrl>ctrl=toggle_quick_terminal
+
+quick-terminal-position = bottom
+quick-terminal-autohide = false
+quick-terminal-animation-duration = 0.0
+quick-terminal-screen = mouse
+
+background-opacity = 0.87
+background-blur = true
+
+
+scrollback-limit = 1048576
+
+window-padding-x = 4
+
+confirm-close-surface = false
+
+initial-window = false
+
+link-url = true
+
+bell-features = no-attention,border
+
