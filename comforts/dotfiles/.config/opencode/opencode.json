@@ -1,0 +1,52 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "angular": {
+      "type": "local",
+      "enabled": true,
+      "command": [
+        "npx",
+        "-y",
+        "@angular/cli",
+        "mcp",
+        "-E",
+        "modernize"
+      ]
+    },
+    "sequentialthinking": {
+      "type": "local",
+      "enabled": true,
+      "command": [
+        "podman",
+        "run",
+        "--rm",
+        "-i",
+        "mcp/sequentialthinking"
+      ]
+    },
+    "memory": {
+      "type": "local",
+      "enabled": true,
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ]
+    }
+  },
+  "provider": {
+    "ollama": {
+      "models": {
+        "glm-4.7-flash:q4_K_M": {
+          "_launch": true,
+          "name": "glm-4.7-flash:q4_K_M"
+        }
+      },
+      "name": "Ollama (local)",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://127.0.0.1:11434/v1"
+      }
+    }
+  }
+}
