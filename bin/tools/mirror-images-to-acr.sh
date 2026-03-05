@@ -20,6 +20,7 @@
 
 set -e
 set -o pipefail
+set -x
 
 : "${IMGFILE:=$1}"
 : "${REG:=$2}"
@@ -31,10 +32,10 @@ set -o pipefail
 
 for imgSrc in $(cat ${IMGFILE}); do
 	echo "Copying ${imgSrc}"
-	imgTarget=${imgSrc/docker.io/${REG}.azurecr.io}
+	imgPath=${imgSrc#*\/}
+	imgTarget="${REG}.azurecr.io/${imgPath}"
 	echo "Target ${imgTarget}"
 
 	skopeo copy "docker://${imgSrc}" "docker://${imgTarget}" --multi-arch all
-	#--override-os linux --override-arch amd64
 
 done

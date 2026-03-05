@@ -33,6 +33,6 @@ while read i; do
 	chart="${i/ */}"
 	vers="${i/* /}"
 	echo "Chart: ${chart}	Version: ${vers}"
-	helm pull "bitnami/${chart}" --version "${vers}"
-	helm push "${chart}-${vers}.tgz" oci://${REG}.azurecr.io/helm
+	helm pull "${chart}" --version "${vers}"
+	helm push "${chart##*/}-${vers}.tgz" oci://${REG}.azurecr.io/helm
 done <helm
