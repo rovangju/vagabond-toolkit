@@ -4,7 +4,8 @@ set backspace=indent,eol,start
 set clipboard=unnamed
 set history=1000
 set colorcolumn=120
-set conceallevel=1
+" set conceallevel=1 " Possible source of jankiness from the polyglot plugin
+" collapsing out characters, e.g.: {"key": true} showing as {key: true}, YUCK!
 
 "no .swp file
 set nobackup
